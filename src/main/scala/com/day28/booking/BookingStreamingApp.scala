@@ -134,7 +134,7 @@ object BookingStreamingApp {
 
     if (runMillis > 0) {
       ssc.awaitTerminationOrTimeout(runMillis)
-      ssc.stop(stopSparkContext = true, stopGracefully = true)
+      ssc.stop(stopSparkContext = true, stopGracefully = false)
     } else {
       ssc.awaitTermination()
     }
