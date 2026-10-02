@@ -1,0 +1,10 @@
+resource_id,category,name,city,capacity,unit_price
+H101,HOTEL,Taj Residency,Hyderabad,20,5000
+H102,HOTEL,Grand Palace,Mumbai,15,4500
+H103,HOTEL,Sea View Resort,Goa,10,6000
+F201,FLIGHT,AI-202 HYD-DEL,Hyderabad,12,6500
+F202,FLIGHT,6E-512 BLR-HYD,Bengaluru,10,3200
+F203,FLIGHT,UK-880 DEL-BOM,Delhi,8,5400
+B301,BUS,Volvo HYD-BLR,Hyderabad,10,1200
+B302,BUS,Express HYD-VJA,Hyderabad,8,600
+B303,BUS,Sleeper BLR-CHE,Bengaluru,10,800

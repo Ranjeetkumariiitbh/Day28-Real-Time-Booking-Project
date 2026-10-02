@@ -1,0 +1,275 @@
+================ BATCH 1 ================
+[INGEST] received=8 valid=8 invalid=0 cumulativeInvalid=0
+[STATE] bookings=8 active=8 cancelled=0 orphanCancels=0 ignoredDuplicateEvents=0
+[REPORT 1 - Occupancy & availability by category]
++--------+---------+--------+--------+---------+------------+--------------+-----------------+-------+
+|category|resources|capacity|occupied|available|occupancyPct|activeBookings|cancelledBookings|revenue|
++--------+---------+--------+--------+---------+------------+--------------+-----------------+-------+
+|BUS     |3        |28      |11      |17       |39.3        |2             |0                |10200.0|
+|FLIGHT  |3        |30      |9       |21       |30.0        |3             |0                |48600.0|
+|HOTEL   |3        |45      |9       |36       |20.0        |3             |0                |48000.0|
++--------+---------+--------+--------+---------+------------+--------------+-----------------+-------+
+[REPORT 2 - Top 5 most occupied resources]
++--------+----------+---------------+--------+-------------+--------------+------------+---------+
+|category|resourceId|name           |capacity|occupiedUnits|availableUnits|occupancyPct|status   |
++--------+----------+---------------+--------+-------------+--------------+------------+---------+
+|BUS     |B302      |Express HYD-VJA|8       |5            |3             |62.5        |AVAILABLE|
+|BUS     |B301      |Volvo HYD-BLR  |10      |6            |4             |60.0        |AVAILABLE|
+|HOTEL   |H103      |Sea View Resort|10      |4            |6             |40.0        |AVAILABLE|
+|FLIGHT  |F203      |UK-880 DEL-BOM |8       |3            |5             |37.5        |AVAILABLE|
+|FLIGHT  |F201      |AI-202 HYD-DEL |12      |4            |8             |33.3        |AVAILABLE|
++--------+----------+---------------+--------+-------------+--------------+------------+---------+
+[REPORT 3 - Availability alerts]
++--------+----------+----+--------+-------------+--------------+------------+------+
+|category|resourceId|name|capacity|occupiedUnits|availableUnits|occupancyPct|status|
++--------+----------+----+--------+-------------+--------------+------------+------+
++--------+----------+----+--------+-------------+--------------+------------+------+
+[REPORT 4 - Revenue by city]
++---------+-------------+-------+
+|city     |occupiedUnits|revenue|
++---------+-------------+-------+
+|Hyderabad|18           |51200.0|
+|Goa      |4            |24000.0|
+|Delhi    |3            |16200.0|
+|Mumbai   |2            |9000.0 |
+|Bengaluru|2            |6400.0 |
++---------+-------------+-------+
+[WINDOW 6s/2s - Activity by category]
++--------+--------+-------------+-----------+--------------+--------+-------------+
+|category|bookings|cancellations|bookedUnits|cancelledUnits|netUnits|cancelRatePct|
++--------+--------+-------------+-----------+--------------+--------+-------------+
+|BUS     |2       |0            |11         |0             |11      |0.0          |
+|FLIGHT  |3       |0            |9          |0             |9       |0.0          |
+|HOTEL   |3       |0            |9          |0             |9       |0.0          |
++--------+--------+-------------+-----------+--------------+--------+-------------+
+[WINDOW 6s/2s - Hot resources (top 3 by booked units)]
++--------+----------+---------------+--------+-----------+
+|category|resourceId|name           |bookings|bookedUnits|
++--------+----------+---------------+--------+-----------+
+|BUS     |B301      |Volvo HYD-BLR  |1       |6          |
+|BUS     |B302      |Express HYD-VJA|1       |5          |
+|FLIGHT  |F201      |AI-202 HYD-DEL |1       |4          |
++--------+----------+---------------+--------+-----------+
+
+================ BATCH 2 ================
+[INGEST] received=8 valid=6 invalid=2 cumulativeInvalid=2
+[REJECTED] unknown event_type 'HOLD' | E015,2026-10-03T10:01:15,BK1013,HOLD,HOTEL,H101,2
+[REJECTED] unknown resource_id 'H104' | E016,2026-10-03T10:01:20,BK1014,BOOK,HOTEL,H104,2
+[STATE] bookings=12 active=10 cancelled=2 orphanCancels=0 ignoredDuplicateEvents=0
+[REPORT 1 - Occupancy & availability by category]
++--------+---------+--------+--------+---------+------------+--------------+-----------------+-------+
+|category|resources|capacity|occupied|available|occupancyPct|activeBookings|cancelledBookings|revenue|
++--------+---------+--------+--------+---------+------------+--------------+-----------------+-------+
+|BUS     |3        |28      |18      |10       |64.3        |4             |0                |15200.0|
+|FLIGHT  |3        |30      |11      |19       |36.7        |3             |1                |61600.0|
+|HOTEL   |3        |45      |12      |33       |26.7        |3             |1                |64000.0|
++--------+---------+--------+--------+---------+------------+--------------+-----------------+-------+
+[REPORT 2 - Top 5 most occupied resources]
++--------+----------+---------------+--------+-------------+--------------+------------+---------+
+|category|resourceId|name           |capacity|occupiedUnits|availableUnits|occupancyPct|status   |
++--------+----------+---------------+--------+-------------+--------------+------------+---------+
+|BUS     |B302      |Express HYD-VJA|8       |8            |0             |100.0       |SOLD_OUT |
+|BUS     |B301      |Volvo HYD-BLR  |10      |6            |4             |60.0        |AVAILABLE|
+|FLIGHT  |F201      |AI-202 HYD-DEL |12      |6            |6             |50.0        |AVAILABLE|
+|BUS     |B303      |Sleeper BLR-CHE|10      |4            |6             |40.0        |AVAILABLE|
+|HOTEL   |H101      |Taj Residency  |20      |8            |12            |40.0        |AVAILABLE|
++--------+----------+---------------+--------+-------------+--------------+------------+---------+
+[REPORT 3 - Availability alerts]
++--------+----------+---------------+--------+-------------+--------------+------------+--------+
+|category|resourceId|name           |capacity|occupiedUnits|availableUnits|occupancyPct|status  |
++--------+----------+---------------+--------+-------------+--------------+------------+--------+
+|BUS     |B302      |Express HYD-VJA|8       |8            |0             |100.0       |SOLD_OUT|
++--------+----------+---------------+--------+-------------+--------------+------------+--------+
+[REPORT 4 - Revenue by city]
++---------+-------------+-------+
+|city     |occupiedUnits|revenue|
++---------+-------------+-------+
+|Hyderabad|28           |91000.0|
+|Goa      |4            |24000.0|
+|Delhi    |3            |16200.0|
+|Bengaluru|6            |9600.0 |
+|Mumbai   |0            |0.0    |
++---------+-------------+-------+
+[WINDOW 6s/2s - Activity by category]
++--------+--------+-------------+-----------+--------------+--------+-------------+
+|category|bookings|cancellations|bookedUnits|cancelledUnits|netUnits|cancelRatePct|
++--------+--------+-------------+-----------+--------------+--------+-------------+
+|BUS     |4       |0            |18         |0             |18      |0.0          |
+|FLIGHT  |4       |1            |15         |4             |11      |25.0         |
+|HOTEL   |4       |1            |14         |2             |12      |25.0         |
++--------+--------+-------------+-----------+--------------+--------+-------------+
+[WINDOW 6s/2s - Hot resources (top 3 by booked units)]
++--------+----------+---------------+--------+-----------+
+|category|resourceId|name           |bookings|bookedUnits|
++--------+----------+---------------+--------+-----------+
+|FLIGHT  |F201      |AI-202 HYD-DEL |2       |10         |
+|BUS     |B302      |Express HYD-VJA|2       |8          |
+|HOTEL   |H101      |Taj Residency  |2       |8          |
++--------+----------+---------------+--------+-----------+
+
+================ BATCH 3 ================
+[INGEST] received=8 valid=7 invalid=1 cumulativeInvalid=3
+[REJECTED] units 'x' is not an integer | E024,2026-10-03T10:02:00,BK1019,BOOK,HOTEL,H101,x
+[STATE] bookings=17 active=13 cancelled=3 orphanCancels=1 ignoredDuplicateEvents=1
+[REPORT 1 - Occupancy & availability by category]
++--------+---------+--------+--------+---------+------------+--------------+-----------------+-------+
+|category|resources|capacity|occupied|available|occupancyPct|activeBookings|cancelledBookings|revenue|
++--------+---------+--------+--------+---------+------------+--------------+-----------------+-------+
+|BUS     |3        |28      |18      |12       |64.3        |5             |1                |14000.0|
+|FLIGHT  |3        |30      |16      |14       |53.3        |4             |1                |88600.0|
+|HOTEL   |3        |45      |17      |28       |37.8        |4             |1                |94000.0|
++--------+---------+--------+--------+---------+------------+--------------+-----------------+-------+
+[REPORT 2 - Top 5 most occupied resources]
++--------+----------+---------------+--------+-------------+--------------+------------+----------------+
+|category|resourceId|name           |capacity|occupiedUnits|availableUnits|occupancyPct|status          |
++--------+----------+---------------+--------+-------------+--------------+------------+----------------+
+|BUS     |B302      |Express HYD-VJA|8       |10           |0             |125.0       |OVERBOOKED      |
+|FLIGHT  |F203      |UK-880 DEL-BOM |8       |8            |0             |100.0       |SOLD_OUT        |
+|HOTEL   |H103      |Sea View Resort|10      |9            |1             |90.0        |LOW_AVAILABILITY|
+|FLIGHT  |F201      |AI-202 HYD-DEL |12      |6            |6             |50.0        |AVAILABLE       |
+|BUS     |B301      |Volvo HYD-BLR  |10      |4            |6             |40.0        |AVAILABLE       |
++--------+----------+---------------+--------+-------------+--------------+------------+----------------+
+[REPORT 3 - Availability alerts]
++--------+----------+---------------+--------+-------------+--------------+------------+----------------+
+|category|resourceId|name           |capacity|occupiedUnits|availableUnits|occupancyPct|status          |
++--------+----------+---------------+--------+-------------+--------------+------------+----------------+
+|BUS     |B302      |Express HYD-VJA|8       |10           |0             |125.0       |OVERBOOKED      |
+|FLIGHT  |F203      |UK-880 DEL-BOM |8       |8            |0             |100.0       |SOLD_OUT        |
+|HOTEL   |H103      |Sea View Resort|10      |9            |1             |90.0        |LOW_AVAILABILITY|
++--------+----------+---------------+--------+-------------+--------------+------------+----------------+
+[REPORT 4 - Revenue by city]
++---------+-------------+-------+
+|city     |occupiedUnits|revenue|
++---------+-------------+-------+
+|Hyderabad|28           |89800.0|
+|Goa      |9            |54000.0|
+|Delhi    |8            |43200.0|
+|Bengaluru|6            |9600.0 |
+|Mumbai   |0            |0.0    |
++---------+-------------+-------+
+[WINDOW 6s/2s - Activity by category]
++--------+--------+-------------+-----------+--------------+--------+-------------+
+|category|bookings|cancellations|bookedUnits|cancelledUnits|netUnits|cancelRatePct|
++--------+--------+-------------+-----------+--------------+--------+-------------+
+|BUS     |6       |1            |24         |6             |18      |16.7         |
+|FLIGHT  |5       |2            |20         |6             |14      |40.0         |
+|HOTEL   |6       |1            |24         |2             |22      |16.7         |
++--------+--------+-------------+-----------+--------------+--------+-------------+
+[WINDOW 6s/2s - Hot resources (top 3 by booked units)]
++--------+----------+---------------+--------+-----------+
+|category|resourceId|name           |bookings|bookedUnits|
++--------+----------+---------------+--------+-----------+
+|HOTEL   |H101      |Taj Residency  |3       |13         |
+|BUS     |B301      |Volvo HYD-BLR  |2       |10         |
+|BUS     |B302      |Express HYD-VJA|3       |10         |
++--------+----------+---------------+--------+-----------+
+
+================ BATCH 4 ================
+[INGEST] received=8 valid=7 invalid=1 cumulativeInvalid=4
+[REJECTED] units must be >= 1 but was 0 | E032,2026-10-03T10:02:40,BK1023,BOOK,HOTEL,H103,0
+[STATE] bookings=20 active=12 cancelled=7 orphanCancels=1 ignoredDuplicateEvents=1
+[REPORT 1 - Occupancy & availability by category]
++--------+---------+--------+--------+---------+------------+--------------+-----------------+--------+
+|category|resources|capacity|occupied|available|occupancyPct|activeBookings|cancelledBookings|revenue |
++--------+---------+--------+--------+---------+------------+--------------+-----------------+--------+
+|BUS     |3        |28      |18      |10       |64.3        |5             |2                |15000.0 |
+|FLIGHT  |3        |30      |11      |19       |36.7        |2             |4                |46200.0 |
+|HOTEL   |3        |45      |23      |22       |51.1        |5             |1                |121000.0|
++--------+---------+--------+--------+---------+------------+--------------+-----------------+--------+
+[REPORT 2 - Top 5 most occupied resources]
++--------+----------+---------------+--------+-------------+--------------+------------+----------------+
+|category|resourceId|name           |capacity|occupiedUnits|availableUnits|occupancyPct|status          |
++--------+----------+---------------+--------+-------------+--------------+------------+----------------+
+|BUS     |B303      |Sleeper BLR-CHE|10      |9            |1             |90.0        |LOW_AVAILABILITY|
+|HOTEL   |H103      |Sea View Resort|10      |9            |1             |90.0        |LOW_AVAILABILITY|
+|BUS     |B302      |Express HYD-VJA|8       |5            |3             |62.5        |AVAILABLE       |
+|FLIGHT  |F203      |UK-880 DEL-BOM |8       |5            |3             |62.5        |AVAILABLE       |
+|FLIGHT  |F202      |6E-512 BLR-HYD |10      |6            |4             |60.0        |AVAILABLE       |
++--------+----------+---------------+--------+-------------+--------------+------------+----------------+
+[REPORT 3 - Availability alerts]
++--------+----------+---------------+--------+-------------+--------------+------------+----------------+
+|category|resourceId|name           |capacity|occupiedUnits|availableUnits|occupancyPct|status          |
++--------+----------+---------------+--------+-------------+--------------+------------+----------------+
+|BUS     |B303      |Sleeper BLR-CHE|10      |9            |1             |90.0        |LOW_AVAILABILITY|
+|HOTEL   |H103      |Sea View Resort|10      |9            |1             |90.0        |LOW_AVAILABILITY|
++--------+----------+---------------+--------+-------------+--------------+------------+----------------+
+[REPORT 4 - Revenue by city]
++---------+-------------+-------+
+|city     |occupiedUnits|revenue|
++---------+-------------+-------+
+|Goa      |9            |54000.0|
+|Hyderabad|17           |47800.0|
+|Delhi    |5            |27000.0|
+|Mumbai   |6            |27000.0|
+|Bengaluru|15           |26400.0|
++---------+-------------+-------+
+[WINDOW 6s/2s - Activity by category]
++--------+--------+-------------+-----------+--------------+--------+-------------+
+|category|bookings|cancellations|bookedUnits|cancelledUnits|netUnits|cancelRatePct|
++--------+--------+-------------+-----------+--------------+--------+-------------+
+|BUS     |5       |2            |18         |11            |7       |40.0         |
+|FLIGHT  |3       |5            |17         |17            |0       |166.7        |
+|HOTEL   |4       |1            |21         |2             |19      |25.0         |
++--------+--------+-------------+-----------+--------------+--------+-------------+
+[WINDOW 6s/2s - Hot resources (top 3 by booked units)]
++--------+----------+---------------+--------+-----------+
+|category|resourceId|name           |bookings|bookedUnits|
++--------+----------+---------------+--------+-----------+
+|HOTEL   |H101      |Taj Residency  |2       |10         |
+|BUS     |B303      |Sleeper BLR-CHE|2       |9          |
+|FLIGHT  |F201      |AI-202 HYD-DEL |1       |6          |
++--------+----------+---------------+--------+-----------+
+
+================ BATCH 5 ================
+[INGEST] received=8 valid=8 invalid=0 cumulativeInvalid=4
+[STATE] bookings=24 active=13 cancelled=10 orphanCancels=1 ignoredDuplicateEvents=2
+[REPORT 1 - Occupancy & availability by category]
++--------+---------+--------+--------+---------+------------+--------------+-----------------+--------+
+|category|resources|capacity|occupied|available|occupancyPct|activeBookings|cancelledBookings|revenue |
++--------+---------+--------+--------+---------+------------+--------------+-----------------+--------+
+|BUS     |3        |28      |24      |6        |85.7        |6             |3                |21000.0 |
+|FLIGHT  |3        |30      |11      |19       |36.7        |2             |5                |51700.0 |
+|HOTEL   |3        |45      |22      |23       |48.9        |5             |2                |111000.0|
++--------+---------+--------+--------+---------+------------+--------------+-----------------+--------+
+[REPORT 2 - Top 5 most occupied resources]
++--------+----------+---------------+--------+-------------+--------------+------------+----------+
+|category|resourceId|name           |capacity|occupiedUnits|availableUnits|occupancyPct|status    |
++--------+----------+---------------+--------+-------------+--------------+------------+----------+
+|BUS     |B303      |Sleeper BLR-CHE|10      |12           |0             |120.0       |OVERBOOKED|
+|BUS     |B301      |Volvo HYD-BLR  |10      |7            |3             |70.0        |AVAILABLE |
+|BUS     |B302      |Express HYD-VJA|8       |5            |3             |62.5        |AVAILABLE |
+|FLIGHT  |F202      |6E-512 BLR-HYD |10      |6            |4             |60.0        |AVAILABLE |
+|HOTEL   |H101      |Taj Residency  |20      |12           |8             |60.0        |AVAILABLE |
++--------+----------+---------------+--------+-------------+--------------+------------+----------+
+[REPORT 3 - Availability alerts]
++--------+----------+---------------+--------+-------------+--------------+------------+----------+
+|category|resourceId|name           |capacity|occupiedUnits|availableUnits|occupancyPct|status    |
++--------+----------+---------------+--------+-------------+--------------+------------+----------+
+|BUS     |B303      |Sleeper BLR-CHE|10      |12           |0             |120.0       |OVERBOOKED|
++--------+----------+---------------+--------+-------------+--------------+------------+----------+
+[REPORT 4 - Revenue by city]
++---------+-------------+--------+
+|city     |occupiedUnits|revenue |
++---------+-------------+--------+
+|Hyderabad|29           |103900.0|
+|Bengaluru|18           |28800.0 |
+|Mumbai   |6            |27000.0 |
+|Goa      |4            |24000.0 |
+|Delhi    |0            |0.0     |
++---------+-------------+--------+
+[WINDOW 6s/2s - Activity by category]
++--------+--------+-------------+-----------+--------------+--------+-------------+
+|category|bookings|cancellations|bookedUnits|cancelledUnits|netUnits|cancelRatePct|
++--------+--------+-------------+-----------+--------------+--------+-------------+
+|BUS     |5       |4            |21         |21            |0       |80.0         |
+|FLIGHT  |3       |5            |16         |18            |-2      |166.7        |
+|HOTEL   |4       |1            |20         |5             |15      |25.0         |
++--------+--------+-------------+-----------+--------------+--------+-------------+
+[WINDOW 6s/2s - Hot resources (top 3 by booked units)]
++--------+----------+---------------+--------+-----------+
+|category|resourceId|name           |bookings|bookedUnits|
++--------+----------+---------------+--------+-----------+
+|BUS     |B301      |Volvo HYD-BLR  |2       |11         |
+|HOTEL   |H101      |Taj Residency  |2       |9          |
+|BUS     |B303      |Sleeper BLR-CHE|2       |8          |
++--------+----------+---------------+--------+-----------+
